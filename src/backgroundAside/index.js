@@ -1,10 +1,11 @@
 import React from 'react';
 import './index.css';
+import backgroundImage from '../backgroundImage.png';
 
 
 const BackgroundAside = () => (
   <div className="background-container">
-    <h1>BackgroundAside here</h1>
+    {/* <img src={backgroundImage} alt="background"/> */}
   </div>
 )
 

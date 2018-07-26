@@ -5,7 +5,8 @@ class LoginAside extends Component {
   render() {
     return (
       <div className="login-container">
-        <h1>Login Aside</h1>
+        <input type="text" placeholder="email"/>
+        <input type="password" placeholder="password"/>
       </div>
     )
   }
