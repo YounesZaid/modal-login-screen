@@ -1,0 +1,5 @@
+#screen-wrapper .background-container {
+  background: rgb(226, 178, 178);
+  display: flex;
+  flex-grow: 1;
+}
