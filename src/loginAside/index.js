@@ -26,9 +26,6 @@ class LoginAside extends Component {
         </div>
         <div className="buttons-section">
           <Checkbox checked={this.state.isEnabled} label="Remember me" onChange={this.handleEnabledChange} />
-          {/* <Button>
-            LOGIN
-          </Button> */}
           <button className="login-button" onClick={() => {
             alert("clicked");
           }}> LOGIN </button>
@@ -38,8 +35,27 @@ class LoginAside extends Component {
 
           }} >Register Now</a>
           <a onClick={() => {
-            
+
           }} >Forgot Password?</a>
+        </div>
+        <div className="separator-section">
+          <hr />
+          <p>Or</p>
+          <hr />
+        </div>
+        <div className="auth-section">
+          <div className="fb-button">
+            <i class="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
+            <button>LOGIN WITH FACEBOOK</button>
+          </div>
+          <div className="twitter-button">
+            <i class="zmdi zmdi-twitter zmdi-hc-2x"></i>
+            <button>LOGIN WITH TWITTER</button>
+          </div>
+          <div className="google-button">
+            <i class="zmdi zmdi-google-plus zmdi-hc-2x"></i>
+            <button>LOGIN WITH GOOGLE</button>
+          </div>
         </div>
       </div>
     )

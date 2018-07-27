@@ -60,6 +60,7 @@
   color: white;
   outline: none;
   border: none;
+  cursor: pointer;
   transition: all .3s;
 }
 
@@ -76,6 +77,7 @@
 .authentification-container .register-reset-section {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .authentification-container .register-reset-section a {
@@ -86,7 +88,7 @@
 
 .authentification-container .register-reset-section a:nth-child(1) {
   color: #4786FF;
-  margin-right: 11.5em;
+  margin-right: 11em;
   transition: all .3s;
 }
 
@@ -101,4 +103,95 @@
 
 .authentification-container .register-reset-section a:nth-child(2):hover {
  color: #4786FF;
+}
+
+.authentification-container .separator-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.authentification-container .separator-section p {
+  color: #dadbdc;
+  margin: 0 55px;
+
+}
+
+.authentification-container .separator-section hr {
+  height: 0;
+  width: 108px;
+  border: .5px solid #dadbdc;
+  margin: 0;
+}
+
+.authentification-container .auth-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authentification-container .auth-section button {
+  outline: none;
+}
+
+.authentification-container .auth-section .fb-button,
+.authentification-container .auth-section .twitter-button,
+.authentification-container .auth-section .google-button {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.authentification-container .auth-section button {
+  padding: 15px;
+  width: 21em;
+  color: white;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.authentification-container .auth-section i {
+  padding: 15px;
+  border-radius: 10px 0 0 10px;
+  color: white;
+}
+
+.authentification-container .auth-section .fb-button i {
+  border: 1px solid #263C68;
+  background-color: #263C68;
+}
+
+.authentification-container .auth-section .twitter-button i {
+  border: 1px solid #0695CB;
+  background-color: #0695CB;
+}
+
+.authentification-container .auth-section .google-button i {
+  border: 1px solid #C53126;
+  background-color: #C53126;
+}
+
+
+.authentification-container .auth-section .fb-button button {
+  background-color: #3B5998;
+}
+
+.authentification-container .auth-section .fb-button button:hover {
+  background-color: #263C68;
+}
+.authentification-container .auth-section .twitter-button button {
+  background-color: #00ACED;
+}
+
+.authentification-container .auth-section .twitter-button button:hover {
+  background-color: #0695CB;
+}
+.authentification-container .auth-section .google-button button {
+  background-color: #F44336;
+}
+
+.authentification-container .auth-section .google-button button:hover {
+  background-color: #C53126;
 }
