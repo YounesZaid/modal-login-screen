@@ -1,7 +1,16 @@
 #screen-wrapper .background-container {
   background: rgb(226, 178, 178);
   display: flex;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
-.background-container > img {}
+.background-container > img {
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  #screen-wrapper .background-container {
+    width: 40%;
+  }
+}
