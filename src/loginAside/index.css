@@ -14,9 +14,7 @@
   align-items: center;
   margin-bottom: 5px;
 }
-
-.authentification-container .login-section .email-input,
-.authentification-container .login-section .password-input {
+.authentification-container .login-section .bp3-input-group {
   display: flex;
   align-items: center;
   width: 25em;
@@ -46,14 +44,28 @@
   border-right: none;
 }
 
-.authentification-container .buttons-section {
+.login-section .buttons-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
-.authentification-container .buttons-section .login-button {
+.login-section .buttons-section > a {
+  text-decoration: none;
+  margin-right: 16em;
+  color: #dadbdc;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 100;
+  transition: all .3s;
+}
+
+.login-section .buttons-section > a:hover {
+  color: #4786FF;
+}
+
+.login-section .buttons-section .login-button {
   padding: 12px;
   background: #4786FF;
   border-radius: 6px;
@@ -64,44 +76,44 @@
   transition: all .3s;
 }
 
-.authentification-container .buttons-section .login-button:hover {
-  background: rgb(107, 157, 250);
+.login-section .buttons-section .login-button:hover {
+  background: rgb(42, 92, 184);
 }
 
-.authentification-container .buttons-section .bp3-control {
+.login-section .buttons-section .bp3-control {
   margin: 0;
   margin-right: 12em;
   color: #aeb7bf;
 }
 
-.authentification-container .register-reset-section {
+.login-section .register-reset-section {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
 }
 
-.authentification-container .register-reset-section a {
+.login-section .register-reset-section a {
   text-decoration: none;
   font-size: 14px;
   font-weight: 100;
 }
 
-.authentification-container .register-reset-section a:nth-child(1) {
+.login-section .register-reset-section a:nth-child(1) {
   color: #4786FF;
   margin-right: 11em;
   transition: all .3s;
 }
 
-.authentification-container .register-reset-section a:nth-child(1):hover {
+.login-section .register-reset-section a:nth-child(1):hover {
   color: #aeb7bf;
 }
 
-.authentification-container .register-reset-section a:nth-child(2) {
+.login-section .register-reset-section a:nth-child(2) {
   color: #aeb7bf;
   transition: all .3s;
 }
 
-.authentification-container .register-reset-section a:nth-child(2):hover {
+.login-section .register-reset-section a:nth-child(2):hover {
  color: #4786FF;
 }
 
@@ -153,7 +165,7 @@
 }
 
 .authentification-container .auth-section i {
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px 0 0 10px;
   color: white;
 }
