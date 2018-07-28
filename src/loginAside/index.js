@@ -81,7 +81,7 @@ class SigninForm extends Component {
   );
 
   render() {
-    const { disabled, large, showPassword } = this.state;
+    // const { disabled, large, showPassword } = this.state;
     const { toggleResetPassword, toggleSignUp } = this.props;
     return (
       <div className="login-section">

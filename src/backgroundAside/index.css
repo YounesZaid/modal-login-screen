@@ -14,3 +14,11 @@
     width: 50%;
   }
 }
+
+@media (max-width: 600px) {
+  #screen-wrapper .background-container {
+    display: none;
+  }
+}
+
+

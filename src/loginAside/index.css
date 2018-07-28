@@ -156,7 +156,7 @@
 
 .authentification-container .auth-section button {
   padding: 15px;
-  width: 21em;
+  width: 22em;
   color: white;
   border-radius: 0 10px 10px 0;
   border: none;
@@ -206,4 +206,50 @@
 
 .authentification-container .auth-section .google-button button:hover {
   background-color: #C53126;
+}
+
+@media (max-width: 777px) {
+  .authentification-container .login-section .bp3-input-group {
+    width: 20em;
+  }
+
+  .login-section .buttons-section .bp3-control {
+    margin-right: 7em;
+  }
+
+  .login-section .register-reset-section a:nth-child(1) {
+    margin-right: 6em;
+  }
+
+  .authentification-container .separator-section hr {
+    width: 74px;
+  }
+
+  .authentification-container .auth-section button {
+    padding: 20px;
+    width: 17em;
+  }
+}
+
+@media (max-width: 600px) {
+  .authentification-container .login-section .bp3-input-group {
+    width: 25em;
+  }
+
+  .login-section .buttons-section .bp3-control {
+    margin-right: 12em;
+  }
+
+  .login-section .register-reset-section a:nth-child(1) {
+    margin-right: 11em;
+  }
+
+  .authentification-container .separator-section hr {
+    width: 108px;
+  }
+
+  .authentification-container .auth-section button {
+    padding: 15px;
+    width: 22em;
+  }
 }
