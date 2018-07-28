@@ -143,7 +143,7 @@
   align-items: center;
 }
 
-.authentification-container .auth-section button {
+.authentification-container .auth-section .button {
   outline: none;
 }
 
@@ -154,7 +154,7 @@
   margin-bottom: 10px;
 }
 
-.authentification-container .auth-section button {
+.authentification-container .auth-section .button {
   padding: 15px;
   width: 22em;
   color: white;
@@ -164,7 +164,7 @@
   cursor: pointer;
 }
 
-.authentification-container .auth-section i {
+.authentification-container .auth-section .bbbtn i {
   padding: 10px;
   border-radius: 10px 0 0 10px;
   color: white;
@@ -252,4 +252,64 @@
     padding: 15px;
     width: 22em;
   }
+}
+
+
+.mls-separator {
+  border: 0;
+  height: 1px;
+  width: 50%;
+  margin: 0 auto 30px;
+  background: #dadbdc;
+  display: flex;
+  justify-content: center;
+}
+
+.mls-separator::after {
+  display: block;
+  content: 'OR';
+  font-size: 12px;
+  color: #aeafb1;
+  text-align: center;
+  margin-top: -5px;
+  background: white;
+  width: 30px;
+}
+
+.mls-social-btn {
+  border: 0;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  background: #eee;
+  color: white;
+  border-radius: 3px;
+  padding: 0;
+  cursor: pointer;
+  /* remove */
+  margin-bottom: 10px;
+  transition: background-color .3s;
+}
+.mls-social-btn:hover {
+}
+.mls-social-btn span {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 15px;
+}
+.mls-social-btn:hover span {}
+.mls-social-btn i {
+  padding: 10px 16px;
+  background: rgba(0,0,0,.08);
+}
+.mls-social-btn:hover i {}
+
+.mls-social-btn.facebook {
+  background: #4975cc;
+}
+.mls-social-btn.twitter {
+  background: #00ACED;
+}
+.mls-social-btn.gplus {
+  background: #C53126;
 }

@@ -34,24 +34,37 @@ class LoginAside extends Component {
         {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} />}
         {selectedTab === 'signUp' && <SignupFrom toggleSignIn={this.toggleSignIn} />}
         {selectedTab === 'resetPassword' && <ResetPassword toggleSignIn={this.toggleSignIn} />}
-        <div className="separator-section">
+        {/* <div className="separator-section">
           <hr />
           <p>Or</p>
           <hr />
-        </div>
+        </div> */}
+        <hr className='mls-separator' />
         <div className="auth-section">
-          <div className="fb-button">
+          {/* <div className="fb-button bbbtn">
             <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
-            <button>LOGIN WITH FACEBOOK</button>
+            <button className='button'>LOGIN WITH FACEBOOK</button>
           </div>
-          <div className="twitter-button">
+          <div className="twitter-button bbbtn">
             <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
-            <button>LOGIN WITH TWITTER</button>
+            <button className='button'>LOGIN WITH TWITTER</button>
           </div>
-          <div className="google-button">
+          <div className="google-button bbbtn">
             <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
-            <button>LOGIN WITH GOOGLE</button>
-          </div>
+            <button className='button'>LOGIN WITH GOOGLE</button>
+          </div> */}
+          <button className='mls-social-btn facebook'>
+            <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
+            <span>LOGIN WITH FACEBOOK</span>
+          </button>
+          <button className='mls-social-btn twitter'>
+            <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
+            <span>LOGIN WITH TWITTER</span>
+          </button>
+          <button className='mls-social-btn gplus'>
+            <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
+            <span>LOGIN WITH GOOGLE</span>
+          </button>
         </div>
       </div>
     )
