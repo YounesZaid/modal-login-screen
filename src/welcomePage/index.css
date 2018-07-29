@@ -1,0 +1,52 @@
+.mls-welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.mls-welcome-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.mls-welcome-content > h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 300;
+  color: #a8a8ea;
+}
+
+.mls-welcome-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+.mls-welcome-infos p {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.mls-welcome-infos span {
+  color: gray;
+}
+
+.mls-welcome-content button {
+  width: 50%;
+  align-self: center;
+  background-color: #a6a6da;
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+.mls-welcome-content button:hover {
+  background-color: #8d8dca;
+}
