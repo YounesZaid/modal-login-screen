@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Checkbox, Tooltip, Button, Intent } from "@blueprintjs/core";
+import { withRouter } from 'react-router-dom';
 
 import './index.css';
 
@@ -29,10 +30,11 @@ class LoginAside extends Component {
 
   render() {
     const { selectedTab } = this.state;
+    const { history } = this.props;
     return (
       <div className="authentification-container">
         <div className='mls-wrapper'>
-          {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} />}
+          {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} history={history} />}
           {selectedTab === 'signUp' && <SignupFrom toggleSignIn={this.toggleSignIn} />}
           {selectedTab === 'resetPassword' && <ResetPassword toggleSignIn={this.toggleSignIn} />}
           {/* <div className="separator-section">
@@ -97,7 +99,7 @@ class SigninForm extends Component {
 
   render() {
     // const { disabled, large, showPassword } = this.state;
-    const { toggleResetPassword, toggleSignUp } = this.props;
+    const { toggleResetPassword, toggleSignUp, history } = this.props;
     return (
       <div className="login-section">
         <div className="bp3-input-group bp3-large">
@@ -120,7 +122,8 @@ class SigninForm extends Component {
         <div className="buttons-section">
           <Checkbox label="Remember me" />
           <button className="mls-login-button" onClick={() => {
-            alert("clicked");
+            // alert("clicked");
+            history.push('/welcome');
           }}> LOGIN </button>
         </div>
         <div className="register-reset-section">
@@ -179,5 +182,5 @@ const ResetPassword = (props) => (
   </div>
 )
 
-export default LoginAside;
+export default withRouter(LoginAside);
 
