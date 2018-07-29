@@ -2,70 +2,71 @@
   /* background: rgb(179, 179, 233); */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
   /* margin: auto; */
   flex-grow: 1;
 }
 
-.authentification-container .login-section {
+.mls-wrapper {
+  /* background-color: wheat; */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 5px;
-}
-.authentification-container .login-section .bp3-input-group {
-  display: flex;
-  align-items: center;
   width: 25em;
 }
 
-.authentification-container .login-section .bp3-input:not(:first-child) {
+/********* INPUT STYLE *************/
+
+.login-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.login-section .bp3-input-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.login-section i {
+  color: #dadbdc;
+  background-color: white;
+  border: 1px solid #dadbdc;
+  padding: 10px;
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+
+.login-section .bp3-input-group.bp3-large .bp3-input:not(:first-child) {
   padding-left: 20px;
 }
 
-.authentification-container .login-section input {
-  margin-bottom: 10px;
+.login-section input {
   border-radius: 0 3px 3px 0;
   padding: 25px;
   color: #bdbdbd;
 }
 
-/* .authentification-container .email-input > i {
-  padding-right: 2px;
-} */
+/********** BUTTONS and LINK STYLE ***********/
 
-.authentification-container .login-section i {
-  color: #dadbdc;
-  border: 1px solid #dadbdc;
-  padding: 10px;
-  border-radius: 3px 0 0 3px;
-  align-self: flex-start;
-  border-right: none;
-}
-
-.login-section .buttons-section {
+.buttons-section {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 12px;
 }
 
-.login-section .buttons-section > a {
-  text-decoration: none;
-  margin-right: 16em;
-  color: #dadbdc;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 100;
-  transition: all .3s;
+.buttons-section .bp3-control {
+  margin: 0;
+  color: #aeb7bf;
 }
 
-.login-section .buttons-section > a:hover {
-  color: #4786FF;
-}
-
-.login-section .buttons-section .login-button {
+.buttons-section .mls-login-button {
   padding: 12px;
   background: #4786FF;
   border-radius: 6px;
@@ -73,76 +74,89 @@
   outline: none;
   border: none;
   cursor: pointer;
-  transition: all .3s;
+  transition: background-color .3s;
 }
 
-.login-section .buttons-section .login-button:hover {
+.buttons-section .mls-login-button:hover {
   background: rgb(42, 92, 184);
 }
 
-.login-section .buttons-section .bp3-control {
-  margin: 0;
-  margin-right: 12em;
-  color: #aeb7bf;
+.buttons-section > a {
+  text-decoration: none;
+  color: #dadbdc;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 100;
+  transition: background-color .3s;
 }
 
-.login-section .register-reset-section {
+.buttons-section > a:hover {
+  color: #4786FF;
+}
+
+/*********** LINKS STYLE ****************/
+.register-reset-section {
   display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.login-section .register-reset-section a {
+.register-reset-section a {
   text-decoration: none;
   font-size: 14px;
   font-weight: 100;
 }
 
-.login-section .register-reset-section a:nth-child(1) {
+.register-reset-section a:nth-child(1) {
   color: #4786FF;
-  margin-right: 11em;
-  transition: all .3s;
+  transition: color .3s;
 }
 
-.login-section .register-reset-section a:nth-child(1):hover {
+.register-reset-section a:nth-child(1):hover {
   color: #aeb7bf;
 }
 
-.login-section .register-reset-section a:nth-child(2) {
+.register-reset-section a:nth-child(2) {
   color: #aeb7bf;
-  transition: all .3s;
+  transition: color .3s;
 }
 
-.login-section .register-reset-section a:nth-child(2):hover {
+.register-reset-section a:nth-child(2):hover {
  color: #4786FF;
 }
 
-.authentification-container .separator-section {
+/************* SEPARATOR STYLE **************/
+
+.mls-separator {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  margin: 0 auto 30px;
+  background: #dadbdc;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
 }
 
-.authentification-container .separator-section p {
-  color: #dadbdc;
-  margin: 0 55px;
-
+.mls-separator::after {
+  display: block;
+  content: 'OR';
+  font-size: 12px;
+  color: #aeafb1;
+  text-align: center;
+  margin-top: -5px;
+  background: white;
+  width: 100px;
 }
 
-.authentification-container .separator-section hr {
-  height: 0;
-  width: 108px;
-  border: .5px solid #dadbdc;
-  margin: 0;
-}
+/********** SOCIAL BUTTONS STYLE  *****************/
 
 .authentification-container .auth-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
-
+/*
 .authentification-container .auth-section .button {
   outline: none;
 }
@@ -206,7 +220,7 @@
 
 .authentification-container .auth-section .google-button button:hover {
   background-color: #C53126;
-}
+} 
 
 @media (max-width: 777px) {
   .authentification-container .login-section .bp3-input-group {
@@ -253,28 +267,7 @@
     width: 22em;
   }
 }
-
-
-.mls-separator {
-  border: 0;
-  height: 1px;
-  width: 50%;
-  margin: 0 auto 30px;
-  background: #dadbdc;
-  display: flex;
-  justify-content: center;
-}
-
-.mls-separator::after {
-  display: block;
-  content: 'OR';
-  font-size: 12px;
-  color: #aeafb1;
-  text-align: center;
-  margin-top: -5px;
-  background: white;
-  width: 30px;
-}
+*/
 
 .mls-social-btn {
   border: 0;
@@ -289,6 +282,7 @@
   /* remove */
   margin-bottom: 10px;
   transition: background-color .3s;
+  width: 100%;
 }
 .mls-social-btn:hover {
 }
@@ -312,4 +306,16 @@
 }
 .mls-social-btn.gplus {
   background: #C53126;
+}
+
+@media (max-width: 885px) {
+  .mls-wrapper {
+    width: 23em;
+  }
+}
+
+@media (max-width: 720px) {
+  .mls-wrapper {
+    width: 25em;
+  }
 }

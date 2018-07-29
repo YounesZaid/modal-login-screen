@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Checkbox, InputGroup, Tooltip, Button, Intent } from "@blueprintjs/core";
+import { Checkbox, Tooltip, Button, Intent } from "@blueprintjs/core";
 
 import './index.css';
 
@@ -31,40 +31,42 @@ class LoginAside extends Component {
     const { selectedTab } = this.state;
     return (
       <div className="authentification-container">
-        {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} />}
-        {selectedTab === 'signUp' && <SignupFrom toggleSignIn={this.toggleSignIn} />}
-        {selectedTab === 'resetPassword' && <ResetPassword toggleSignIn={this.toggleSignIn} />}
-        {/* <div className="separator-section">
-          <hr />
-          <p>Or</p>
-          <hr />
-        </div> */}
-        <hr className='mls-separator' />
-        <div className="auth-section">
-          {/* <div className="fb-button bbbtn">
-            <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
-            <button className='button'>LOGIN WITH FACEBOOK</button>
-          </div>
-          <div className="twitter-button bbbtn">
-            <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
-            <button className='button'>LOGIN WITH TWITTER</button>
-          </div>
-          <div className="google-button bbbtn">
-            <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
-            <button className='button'>LOGIN WITH GOOGLE</button>
+        <div className='mls-wrapper'>
+          {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} />}
+          {selectedTab === 'signUp' && <SignupFrom toggleSignIn={this.toggleSignIn} />}
+          {selectedTab === 'resetPassword' && <ResetPassword toggleSignIn={this.toggleSignIn} />}
+          {/* <div className="separator-section">
+            <hr />
+            <p>Or</p>
+            <hr />
           </div> */}
-          <button className='mls-social-btn facebook'>
-            <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
-            <span>LOGIN WITH FACEBOOK</span>
-          </button>
-          <button className='mls-social-btn twitter'>
-            <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
-            <span>LOGIN WITH TWITTER</span>
-          </button>
-          <button className='mls-social-btn gplus'>
-            <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
-            <span>LOGIN WITH GOOGLE</span>
-          </button>
+          <hr className='mls-separator' />
+          <div className="auth-section">
+            {/* <div className="fb-button bbbtn">
+              <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
+              <button className='button'>LOGIN WITH FACEBOOK</button>
+            </div>
+            <div className="twitter-button bbbtn">
+              <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
+              <button className='button'>LOGIN WITH TWITTER</button>
+            </div>
+            <div className="google-button bbbtn">
+              <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
+              <button className='button'>LOGIN WITH GOOGLE</button>
+            </div> */}
+            <button className='mls-social-btn facebook'>
+              <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
+              <span>LOGIN WITH FACEBOOK</span>
+            </button>
+            <button className='mls-social-btn twitter'>
+              <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
+              <span>LOGIN WITH TWITTER</span>
+            </button>
+            <button className='mls-social-btn gplus'>
+              <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
+              <span>LOGIN WITH GOOGLE</span>
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -117,7 +119,7 @@ class SigninForm extends Component {
         </div> */}
         <div className="buttons-section">
           <Checkbox label="Remember me" />
-          <button className="login-button" onClick={() => {
+          <button className="mls-login-button" onClick={() => {
             alert("clicked");
           }}> LOGIN </button>
         </div>
@@ -153,7 +155,7 @@ const SignupFrom = (props) => (
       <a onClick={(e) => {
         props.toggleSignIn();
       }} >Sign in</a>
-      <button className="login-button" onClick={() => {
+      <button className="mls-login-button" onClick={() => {
         alert("clicked");
       }}> SIGNUP </button>
     </div>
@@ -170,7 +172,7 @@ const ResetPassword = (props) => (
       <a onClick={(e) => {
         props.toggleSignIn();
       }} >Sign in</a>
-      <button className="login-button" onClick={() => {
+      <button className="mls-login-button" onClick={() => {
         alert("clicked");
       }}>RESET</button>
     </div>

@@ -9,15 +9,19 @@
   width: 100%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 995px) {
   #screen-wrapper .background-container {
     width: 50%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   #screen-wrapper .background-container {
-    display: none;
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
   }
 }
 
