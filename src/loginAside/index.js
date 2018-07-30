@@ -1,77 +1,92 @@
 import React, { Component } from 'react';
 import { Checkbox, Tooltip, Button, Intent } from "@blueprintjs/core";
-import { withRouter } from 'react-router-dom';
 
 import './index.css';
+import WelcomePage from '../welcomePage';
 
 class LoginAside extends Component {
 
   state = {
     selectedTab: 'signIn',
+    welcomePage: true,
   }
+
+  toggleWelcomePage = () => {
+    this.setState({
+      welcomePage: !this.state.welcomePage
+    })
+  };
 
   toggleSignIn = () => {
     this.setState({
       selectedTab: 'signIn'
     })
-  }
+  };
 
   toggleSignUp = () => {
     this.setState({
       selectedTab: 'signUp'
     })
-  }
+  };
 
   toggleResetPassword = () => {
     this.setState({
       selectedTab: 'resetPassword'
     })
-  }
+  };
 
   render() {
-    const { selectedTab } = this.state;
-    const { history } = this.props;
-    return (
-      <div className="authentification-container">
-        <div className='mls-wrapper'>
-          {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} history={history} />}
-          {selectedTab === 'signUp' && <SignupFrom toggleSignIn={this.toggleSignIn} />}
-          {selectedTab === 'resetPassword' && <ResetPassword toggleSignIn={this.toggleSignIn} />}
-          {/* <div className="separator-section">
-            <hr />
-            <p>Or</p>
-            <hr />
-          </div> */}
-          <hr className='mls-separator' />
-          <div className="auth-section">
-            {/* <div className="fb-button bbbtn">
-              <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
-              <button className='button'>LOGIN WITH FACEBOOK</button>
-            </div>
-            <div className="twitter-button bbbtn">
-              <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
-              <button className='button'>LOGIN WITH TWITTER</button>
-            </div>
-            <div className="google-button bbbtn">
-              <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
-              <button className='button'>LOGIN WITH GOOGLE</button>
+    const { selectedTab, welcomePage } = this.state;
+    if (welcomePage) {
+      return (
+        <div className='authentification-container'>
+          <WelcomePage goToLoginForm={this.toggleWelcomePage} />
+        </div>
+      )
+    } else {
+      return (
+        <div className="authentification-container">
+          <div className='mls-wrapper'>
+            {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} toggleWelcomePage={this.toggleWelcomePage} />}
+            {selectedTab === 'signUp' && <SignupFrom toggleSignIn={this.toggleSignIn} />}
+            {selectedTab === 'resetPassword' && <ResetPassword toggleSignIn={this.toggleSignIn} />}
+            {/* <div className="separator-section">
+              <hr />
+              <p>Or</p>
+              <hr />
             </div> */}
-            <button className='mls-social-btn facebook'>
-              <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
-              <span>LOGIN WITH FACEBOOK</span>
-            </button>
-            <button className='mls-social-btn twitter'>
-              <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
-              <span>LOGIN WITH TWITTER</span>
-            </button>
-            <button className='mls-social-btn gplus'>
-              <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
-              <span>LOGIN WITH GOOGLE</span>
-            </button>
+            <hr className='mls-separator' />
+            <div className="auth-section">
+              {/* <div className="fb-button bbbtn">
+                <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
+                <button className='button'>LOGIN WITH FACEBOOK</button>
+              </div>
+              <div className="twitter-button bbbtn">
+                <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
+                <button className='button'>LOGIN WITH TWITTER</button>
+              </div>
+              <div className="google-button bbbtn">
+                <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
+                <button className='button'>LOGIN WITH GOOGLE</button>
+              </div> */}
+              <button className='mls-social-btn facebook'>
+                <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
+                <span>LOGIN WITH FACEBOOK</span>
+              </button>
+              <button className='mls-social-btn twitter'>
+                <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
+                <span>LOGIN WITH TWITTER</span>
+              </button>
+              <button className='mls-social-btn gplus'>
+                <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
+                <span>LOGIN WITH GOOGLE</span>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    }
+
   }
 }
 
@@ -99,7 +114,7 @@ class SigninForm extends Component {
 
   render() {
     // const { disabled, large, showPassword } = this.state;
-    const { toggleResetPassword, toggleSignUp, history } = this.props;
+    const { toggleResetPassword, toggleSignUp, toggleWelcomePage } = this.props;
     return (
       <div className="login-section">
         <div className="bp3-input-group bp3-large">
@@ -123,7 +138,7 @@ class SigninForm extends Component {
           <Checkbox label="Remember me" />
           <button className="mls-login-button" onClick={() => {
             // alert("clicked");
-            history.push('/welcome');
+            toggleWelcomePage();
           }}> LOGIN </button>
         </div>
         <div className="register-reset-section">
@@ -182,5 +197,5 @@ const ResetPassword = (props) => (
   </div>
 )
 
-export default withRouter(LoginAside);
+export default LoginAside;
 

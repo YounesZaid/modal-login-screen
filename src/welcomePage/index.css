@@ -1,52 +1,64 @@
-.mls-welcome {
+#screen-wrapper .mls-welcome-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: space-evenly;
   flex-grow: 1;
+  width: 30em;
 }
 
-.mls-welcome-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex-grow: 1;
-}
-
-.mls-welcome-content > h1 {
+.mls-welcome-container > h1 {
   margin: 0;
   font-size: 30px;
   font-weight: 300;
-  color: #a8a8ea;
+  color: #c9a894;
+  text-align: center;
 }
 
-.mls-welcome-infos {
-  display: flex;
-  flex-direction: column;
+.mls-welcome-infos {}
+
+.mls-welcome-infos span {
+  font-weight: 100;
+  margin-left: 20px;
+  color: #6e9aae;
 }
 
 .mls-welcome-infos p {
   margin: 0;
-  margin-bottom: 10px;
-  font-size: 30px;
-  font-weight: 100;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #6f9ba7;
 }
 
-.mls-welcome-infos span {
-  color: gray;
-}
-
-.mls-welcome-content button {
-  width: 50%;
-  align-self: center;
-  background-color: #a6a6da;
-  color: white;
+.mls-welcome-button {
   padding: 10px;
+  border-color: #ceb3a2;
+  background-color: #ceb3a2;
+  color: white;
   border-radius: 3px;
+  width: 15em;
+  outline: none;
   cursor: pointer;
   transition: background-color .3s;
+} 
+
+.mls-welcome-button:hover {
+  background-color: #c9a894;
 }
 
-.mls-welcome-content button:hover {
-  background-color: #8d8dca;
+@media (max-width: 835px) {
+  #screen-wrapper .mls-welcome-container {
+    width: 20em;
+  }
 }
+
+@media (max-width: 720px) {
+  #screen-wrapper .mls-welcome-container {
+    width: 100%;
+    background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(250,250,250,.5) 9%, rgba(206,179,162,.2) 94%, rgba(206,179,160,.2) 100%);
+  }
+}
+
+
+
