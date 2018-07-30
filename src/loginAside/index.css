@@ -318,4 +318,13 @@
   .mls-wrapper {
     width: 25em;
   }
+
+  .mls-separator::after {
+    background: #f9f5f3;
+  }
+
+  #screen-wrapper .authentification-container {
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, .1));
+  }
 }
