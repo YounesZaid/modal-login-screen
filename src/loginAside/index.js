@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { db } from '../db';
+import * as firebase from "firebase";
 
 import './index.css';
 import WelcomePage from '../welcomePage';
 import SigninForm from './SigninForm';
 import SignupFrom from './SignupForm';
+
+const auth = firebase.auth();
 
 class LoginAside extends Component {
 
@@ -12,7 +15,7 @@ class LoginAside extends Component {
     selectedTab: 'signIn',
     welcomePage: false,
     isError: false,
-    messageError: 'Error or Something else',
+    messageError: '',
   }
 
   toggleWelcomePage = () => {
@@ -51,6 +54,54 @@ class LoginAside extends Component {
     });
   }
 
+  handleSignIn = (email, password) => {
+    auth.signInWithEmailAndPassword(email, password).then((data) => {
+      // alert('Success !' +JSON.stringify(data));
+
+      this.toggleWelcomePage();
+    })
+      .catch((error) => {
+        // Handle Errors here.
+        // var errorCode = error.code;
+        const messageError = error.message;
+        // ...
+        this.setState({
+          isError: true,
+          messageError
+        })
+        // if (errorCode === 'auth/wrong-password') {
+        //   alert('Wrong password.');
+        // } else {
+        //   alert(errorMessage);
+        // }
+      });
+  }
+
+  handleSignOut = () => {
+    auth.signOut().then(() => {
+      alert("See u again");
+      this.toggleWelcomePage();
+    })
+      .catch((error) => {
+        alert('Error while disconnecting : ' + error)
+      });
+  }
+
+  handleSignUp = (username, email, password) => {
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((user) => {
+        user.updateProfile({
+          displayName: username,
+        })
+
+      }).catch(function (error) {
+        // An error happened.
+        alert('error updating : ' + error)
+      });
+    alert("Created successfully");
+    this.toggleSignIn();
+  }
+
 
 
   render() {
@@ -58,7 +109,7 @@ class LoginAside extends Component {
     if (welcomePage) {
       return (
         <div className='authentification-container'>
-          <WelcomePage goToLoginForm={this.toggleWelcomePage} />
+          <WelcomePage goToLoginForm={this.toggleWelcomePage} signOut={this.handleSignOut} />
         </div>
       )
     } else {
@@ -68,8 +119,8 @@ class LoginAside extends Component {
             {isError && <div className='mls-message-error'>
               <p>{messageError}</p>
             </div>}
-            {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} toggleWelcomePage={this.toggleWelcomePage} addUser={this.addUser} />}
-            {selectedTab === 'signUp' && <SignupFrom toggleSignIn={this.toggleSignIn} />}
+            {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} toggleWelcomePage={this.toggleWelcomePage} handleSignIn={this.handleSignIn} />}
+            {selectedTab === 'signUp' && <SignupFrom goToSignIn={this.toggleSignIn} signUp={this.handleSignUp} />}
             {selectedTab === 'resetPassword' && <ResetPassword toggleSignIn={this.toggleSignIn} />}
             {/* <div className="separator-section">
               <hr />

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Checkbox } from "@blueprintjs/core";
 
-
 export default class SigninForm extends Component {
 
   state = {
-    email: '',
-    password: ''
+    email: 'zaidyounes94@gmail.com',
+    password: 'root123'
   }
 
   render() {
-    const { toggleResetPassword, toggleSignUp } = this.props;
+    const { toggleResetPassword, toggleSignUp, handleSignIn } = this.props;
     const { email, password } = this.state;
     return (
       <div className="login-section">
@@ -34,10 +33,8 @@ export default class SigninForm extends Component {
         </div>
         <div className="buttons-section">
           <Checkbox label="Remember me" />
-          <button className="mls-login-button" onClick={() => {
-            // alert("clicked");
-            addUser(email, password);
-            // toggleWelcomePage();
+          <button className="mls-login-button" onClick={(e) => {
+            handleSignIn(email, password)
           }}> LOGIN </button>
         </div>
         <div className="register-reset-section">
