@@ -15,6 +15,13 @@
   width: 25em;
 }
 
+.mls-message-error p {
+  font-weight: 200;
+  color: rgb(253, 91, 91);
+  text-align: center;
+
+}
+
 /********* INPUT STYLE *************/
 
 .login-section {

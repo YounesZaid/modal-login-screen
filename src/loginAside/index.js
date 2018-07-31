@@ -8,7 +8,9 @@ class LoginAside extends Component {
 
   state = {
     selectedTab: 'signIn',
-    welcomePage: true,
+    welcomePage: false,
+    isError: false,
+    messageError: 'Error or Something else',
   }
 
   toggleWelcomePage = () => {
@@ -36,7 +38,7 @@ class LoginAside extends Component {
   };
 
   render() {
-    const { selectedTab, welcomePage } = this.state;
+    const { selectedTab, welcomePage, messageError, isError } = this.state;
     if (welcomePage) {
       return (
         <div className='authentification-container'>
@@ -47,6 +49,9 @@ class LoginAside extends Component {
       return (
         <div className="authentification-container">
           <div className='mls-wrapper'>
+            {isError && <div className='mls-message-error'>
+              <p>{messageError}</p>
+            </div>}
             {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} toggleWelcomePage={this.toggleWelcomePage} />}
             {selectedTab === 'signUp' && <SignupFrom toggleSignIn={this.toggleSignIn} />}
             {selectedTab === 'resetPassword' && <ResetPassword toggleSignIn={this.toggleSignIn} />}
@@ -69,15 +74,21 @@ class LoginAside extends Component {
                 <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
                 <button className='button'>LOGIN WITH GOOGLE</button>
               </div> */}
-              <button className='mls-social-btn facebook'>
+              <button className='mls-social-btn facebook' onClick={() => {
+                this.toggleWelcomePage();
+              }} >
                 <i className="zmdi zmdi-facebook-box zmdi-hc-2x"></i>
                 <span>LOGIN WITH FACEBOOK</span>
               </button>
-              <button className='mls-social-btn twitter'>
+              <button className='mls-social-btn twitter' onClick={() => {
+                this.toggleWelcomePage();
+              }}>
                 <i className="zmdi zmdi-twitter zmdi-hc-2x"></i>
                 <span>LOGIN WITH TWITTER</span>
               </button>
-              <button className='mls-social-btn gplus'>
+              <button className='mls-social-btn gplus' onClick={() => {
+                this.toggleWelcomePage();
+              }}>
                 <i className="zmdi zmdi-google-plus zmdi-hc-2x"></i>
                 <span>LOGIN WITH GOOGLE</span>
               </button>
