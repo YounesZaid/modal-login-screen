@@ -6,6 +6,7 @@ import './index.css';
 import WelcomePage from '../welcomePage';
 import SigninForm from './SigninForm';
 import SignupFrom from './SignupForm';
+import ResetPasswordForm from './ResetPasswordForm';
 
 const auth = firebase.auth();
 
@@ -112,28 +113,22 @@ class LoginAside extends Component {
         })
       });
   }
-  registerPasswordUser(email,displayName,password,photoURL){
-    var user = null;
-    //nullify empty arguments
-    for (var i = 0; i < arguments.length; i++) {
-      arguments[i] = arguments[i] ? arguments[i] : null;
-    }
-  
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(function () {
-      user = auth.currentUser;
-      user.sendEmailVerification();
-    })
-    .then(function () {
-      user.updateProfile({
-        displayName: displayName,
-        photoURL: photoURL
-      });
-    })
-    .catch(function(error) {
-      console.log(error.message);
+
+  handleResetPassword = (email) => {
+    auth.sendPasswordResetEmail(email).then(() => {
+      // Email sent.
+      this.setState({
+        isError: false
+      })
+      alert('an email has been sent to you with password reset instructions');
+    }).catch((error) => {
+      // An error happened.
+      var errorMessage = error.message;
+      this.setState({
+        isError: true,
+        errorMessage
+      })
     });
-    console.log('Validation link was sent to ' + email + '.');
   }
   
 
@@ -156,7 +151,7 @@ class LoginAside extends Component {
             </div>}
             {selectedTab === 'signIn' && <SigninForm toggleSignUp={this.toggleSignUp} toggleResetPassword={this.toggleResetPassword} toggleWelcomePage={this.toggleWelcomePage} handleSignIn={this.handleSignIn} />}
             {selectedTab === 'signUp' && <SignupFrom goToSignIn={this.toggleSignIn} signUp={this.handleSignUp} />}
-            {selectedTab === 'resetPassword' && <ResetPassword toggleSignIn={this.toggleSignIn} />}
+            {selectedTab === 'resetPassword' && <ResetPasswordForm goToSignIn={this.toggleSignIn} resetPassword={this.handleResetPassword} />}
             {/* <div className="separator-section">
               <hr />
               <p>Or</p>
@@ -202,23 +197,6 @@ class LoginAside extends Component {
 
   }
 }
-
-const ResetPassword = (props) => (
-  <div className="login-section">
-    <div className="bp3-input-group">
-      <i className="zmdi zmdi-email zmdi-hc-2x"></i>
-      <input type="text" className="bp3-input bp3-large bp3-fill" placeholder="email" />
-    </div>
-    <div className="buttons-section">
-      <a onClick={(e) => {
-        props.toggleSignIn();
-      }} >Sign in</a>
-      <button className="mls-login-button" onClick={() => {
-        alert("clicked");
-      }}>RESET</button>
-    </div>
-  </div>
-)
 
 export default LoginAside;
 
