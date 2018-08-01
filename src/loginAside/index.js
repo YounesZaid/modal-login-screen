@@ -57,7 +57,9 @@ class LoginAside extends Component {
   handleSignIn = (email, password) => {
     auth.signInWithEmailAndPassword(email, password).then((data) => {
       // alert('Success !' +JSON.stringify(data));
-
+      this.setState({
+        isError: false
+      })
       this.toggleWelcomePage();
     })
       .catch((error) => {
@@ -89,18 +91,51 @@ class LoginAside extends Component {
 
   handleSignUp = (username, email, password) => {
     auth.createUserWithEmailAndPassword(email, password)
-      .then((user) => {
+      .then(() => {
+        // Success
+        let user = auth.currentUser;
         user.updateProfile({
           displayName: username,
-        })
-
-      }).catch(function (error) {
+        }).then(() => {
+          // Update successful.
+          console.log('==> updated');
+        }).catch((error) => {
+          // An error happened.
+          console.log('===> error updating'+error)
+        });
+        this.toggleSignIn();
+      }).catch((error) => {
         // An error happened.
-        alert('error updating : ' + error)
+        this.setState({
+          isError: true,
+          messageError: error.message
+        })
       });
-    alert("Created successfully");
-    this.toggleSignIn();
   }
+  registerPasswordUser(email,displayName,password,photoURL){
+    var user = null;
+    //nullify empty arguments
+    for (var i = 0; i < arguments.length; i++) {
+      arguments[i] = arguments[i] ? arguments[i] : null;
+    }
+  
+    auth.createUserWithEmailAndPassword(email, password)
+    .then(function () {
+      user = auth.currentUser;
+      user.sendEmailVerification();
+    })
+    .then(function () {
+      user.updateProfile({
+        displayName: displayName,
+        photoURL: photoURL
+      });
+    })
+    .catch(function(error) {
+      console.log(error.message);
+    });
+    console.log('Validation link was sent to ' + email + '.');
+  }
+  
 
 
 

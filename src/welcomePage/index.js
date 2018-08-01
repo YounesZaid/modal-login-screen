@@ -10,7 +10,7 @@ const WelcomePage = (props) => (
       <i className="zmdi zmdi-account zmdi-hc-3x">
       <span>{firebase.auth().currentUser.displayName}</span>
       </i>
-      <i className="zmdi zmdi-key zmdi-hc-3x">
+      <i className="zmdi zmdi-email zmdi-hc-3x">
       <span>{firebase.auth().currentUser.email}</span>
       </i>
     </div>

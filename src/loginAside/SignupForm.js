@@ -48,11 +48,11 @@ class SignupFrom extends Component {
           <button className="mls-login-button" onClick={() => {
             // alert("clicked");
             signUp(username, email, password);
-            this.setState({
-              username: '',
-              email: '',
-              password: '',
-            })
+            // this.setState({
+            //   username: '',
+            //   email: '',
+            //   password: '',
+            // })
           }}> SIGNUP </button>
         </div>
       </div>
